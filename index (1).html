@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harikrishnan Mamparambath — Business Analytics Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #16202B;
+    --ink-soft: #4A5568;
+    --paper: #FAFAF8;
+    --card: #FFFFFF;
+    --line: #E3E1D9;
+    --teal: #0F6E56;
+    --teal-bg: #E1F5EE;
+    --amber: #854F0B;
+    --amber-bg: #FAEEDA;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 28px; }
+
+  .hero-top {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .pixel-avatar {
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+    image-rendering: pixelated;
+  }
+  .pixel-avatar .arm {
+    transform-origin: 34px 46px;
+    animation: wave 1.4s ease-in-out infinite;
+  }
+  @keyframes wave {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-24deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-24deg); }
+  }
+  header.hero {
+    padding: 96px 0 72px;
+    border-bottom: 1px solid var(--line);
+  }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 18px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(36px, 6vw, 56px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    max-width: 15ch;
+  }
+  .tagline {
+    margin-top: 22px;
+    font-size: 18px;
+    color: var(--ink-soft);
+    max-width: 52ch;
+  }
+  .contact-row {
+    margin-top: 32px;
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    font-size: 14px;
+  }
+  .contact-row a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 2px;
+  }
+  .contact-row a:hover { border-color: var(--teal); color: var(--teal); }
+
+  section { padding: 72px 0; }
+  section + section { border-top: 1px solid var(--line); }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 30px;
+  }
+  .section-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  @media (min-width: 720px) {
+    .project-card { grid-template-columns: 2fr 1fr; gap: 32px; }
+  }
+  .project-tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    background: var(--teal-bg);
+    color: var(--teal);
+    padding: 4px 10px;
+    border-radius: 3px;
+    margin-bottom: 14px;
+  }
+  .project-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .project-card p {
+    color: var(--ink-soft);
+    font-size: 15px;
+  }
+  .project-finding {
+    margin-top: 14px;
+    font-size: 14px;
+    padding: 12px 14px;
+    background: var(--amber-bg);
+    color: var(--amber);
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .project-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-self: start;
+  }
+  .project-links a {
+    font-size: 14px;
+    color: var(--ink);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid var(--line);
+    padding: 9px 14px;
+    border-radius: 3px;
+    transition: border-color 0.15s;
+  }
+  .project-links a:hover { border-color: var(--teal); color: var(--teal); }
+  .project-placeholder {
+    opacity: 0.55;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+  }
+  .skill-group h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--teal);
+    margin-bottom: 10px;
+  }
+  .skill-group p { font-size: 14px; color: var(--ink-soft); }
+
+  footer {
+    padding: 56px 0 80px;
+    text-align: center;
+  }
+  footer p { color: var(--ink-soft); font-size: 14px; }
+  footer a { color: var(--teal); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="eyebrow">Business analytics &amp; data</div>
+    <div class="hero-top">
+      <h1>Harikrishnan Mamparambath</h1>
+      <svg class="pixel-avatar" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="8" width="24" height="24" fill="#3C2A1E"/>
+        <rect x="22" y="12" width="20" height="18" fill="#C88B5C"/>
+        <rect x="20" y="12" width="2" height="8" fill="#3C2A1E"/>
+        <rect x="42" y="12" width="2" height="8" fill="#3C2A1E"/>
+        <rect x="26" y="18" width="3" height="3" fill="#16202B"/>
+        <rect x="35" y="18" width="3" height="3" fill="#16202B"/>
+        <rect x="28" y="24" width="8" height="2" fill="#8A5A3A"/>
+        <rect x="18" y="32" width="28" height="22" fill="#0F6E56"/>
+        <g class="arm">
+          <rect x="42" y="34" width="6" height="16" fill="#0F6E56"/>
+          <rect x="44" y="30" width="6" height="8" fill="#C88B5C"/>
+        </g>
+        <rect x="16" y="34" width="6" height="16" fill="#0F6E56"/>
+        <rect x="14" y="46" width="6" height="6" fill="#C88B5C"/>
+      </svg>
+    </div>
+    <p class="tagline">Curious about people and the patterns behind their choices. I turn that curiosity into dashboards executives actually use, built with Power BI, SQL, and Python.</p>
+    <div class="contact-row">
+      <a href="mailto:hmamparambath@gmail.com">hmamparambath@gmail.com</a>
+      <a href="https://linkedin.com/in/HariMamparambath">LinkedIn</a>
+      <a href="https://github.com/HariMamparambath">GitHub</a>
+      <a href="resume.pdf">Resume</a>
+    </div>
+  </header>
+</div>
+
+
+
+<div class="wrap">
+  <section id="projects">
+    <div class="section-head">
+      <h2>Case studies</h2>
+      <div class="section-note">03 projects</div>
+    </div>
+
+    <div class="project-grid">
+
+      <div class="project-card">
+        <div>
+          <span class="project-tag">Power BI · SQL · Python</span>
+          <h3>Supply chain delivery performance</h3>
+          <p>Analyzed 180K+ orders to find where late deliveries were costing the most — by region, shipping mode, and supplier — and built a dashboard to track it going forward.</p>
+          <div class="project-finding">Finding: Region X had a 34% late-delivery rate — 2x the network average</div>
+        </div>
+        <div class="project-links">
+          <a href="#">↗ Live dashboard</a>
+          <a href="#">↗ GitHub repo</a>
+        </div>
+      </div>
+
+      <div class="project-card project-placeholder">
+        <div>
+          <span class="project-tag">Coming soon</span>
+          <h3>Project two</h3>
+          <p>Add your next case study here — same format: business question, approach, one concrete finding.</p>
+        </div>
+        <div class="project-links">
+          <a href="#">↗ Live dashboard</a>
+          <a href="#">↗ GitHub repo</a>
+        </div>
+      </div>
+
+      <div class="project-card project-placeholder">
+        <div>
+          <span class="project-tag">Coming soon</span>
+          <h3>Project three</h3>
+          <p>Add your next case study here — same format: business question, approach, one concrete finding.</p>
+        </div>
+        <div class="project-links">
+          <a href="#">↗ Live dashboard</a>
+          <a href="#">↗ GitHub repo</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<div class="wrap">
+  <section id="skills">
+    <div class="section-head">
+      <h2>Toolkit</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>Analysis</h4>
+        <p>Python (Pandas, NumPy), SQL, R</p>
+      </div>
+      <div class="skill-group">
+        <h4>Visualization</h4>
+        <p>Power BI, Tableau, Excel</p>
+      </div>
+      <div class="skill-group">
+        <h4>Automation</h4>
+        <p>Power Automate, Power Query</p>
+      </div>
+      <div class="skill-group">
+        <h4>Certification</h4>
+        <p>CAPM®</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>Built by Harikrishnan Mamparambath · <a href="mailto:hmamparambath@gmail.com">Get in touch</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
